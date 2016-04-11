@@ -1,0 +1,28 @@
+<launch>	
+	<arg name="param" default="default"/>
+	<node name="ped_manager_node" pkg="ped_manager" type="ped_manager_node" output="screen">
+		<rosparam file="$(find ped_manager)/param/ped_manager_node/$(arg param).yaml"/>
+	</node>
+
+	<!--
+	Subscription:
+		"~clusters": mod_msgs/Clusters.msg
+			- Lidar Clusters from pcl_clustering/cluster_node
+		"~ped_id": mod_msgs/ClusterHit.msg
+			- Pedestrian liklihood of clusters from pedestrain detector and data fusion
+		"~veh_pose": geometry_msgs/PoseWithCovarianceStamped.msg
+			- Pose of the vehicle from AMCL localization
+		"~ped_pred": mod_msgs/PedTrajVec.msg
+			- Predicted trajectory of pedestrians from DPGP pedestrian predictor
+	Publication:
+		"~ped_diff": mod_msgs/PedTrajVec.msg
+			- Incremental trajectories of tracked pedestrains
+		"~veh_diff": mod_msgs/PedTraj.msg
+			- Incremental trajectory of the vehicle
+		"~ped_dump": mod_msgs/PedTrajVec.msg
+			- Trajectories of inactive pedestrains.
+		"~ped_recent": mod_msgs/PedTrajVec.msg
+			- Recent trajectories of all tracked pedestrains.
+	 -->
+
+</launch>

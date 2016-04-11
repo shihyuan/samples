@@ -1,0 +1,13 @@
+publish_markers: true
+visualizer_only: false
+diff_pub_period: 1.0
+prune_period: 60.0
+inactive_tol: 15.0
+vis_period: 0.03
+dump_period: 60.0
+recent_period: 0.2
+recent_tol: 10.0
+recent_downsample_duration: 1.0
+ped_count_threshold: 2
+static_ped_count_threshold: 20
+min_dist_threshold: 2
