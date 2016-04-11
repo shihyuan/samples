@@ -1,0 +1,38 @@
+veh_type_list: ["BQ","RQ","CQ","HL"]
+timeStep: 0.01
+BQ:
+  neighborDist: 10
+  maxNeighbors: 25
+  timeHorizon: 1.5
+  timeHorizonObst: 1.2
+  radius: 0.4
+  maxSpeed: 1.2
+  maxAcc: 999.0
+  lambdaValue: 0.6
+RQ:
+  neighborDist: 10
+  maxNeighbors: 25
+  timeHorizon: 2.0
+  timeHorizonObst: 0.3
+  radius: 0.4
+  maxSpeed: 1.2
+  maxAcc: 999.0
+  lambdaValue: 0.65
+CQ:
+  neighborDist: 10
+  maxNeighbors: 25
+  timeHorizon: 1.5
+  timeHorizonObst: 1.2
+  radius: 0.4
+  maxSpeed: 1.0
+  maxAcc: 999.0
+  lambdaValue: 0.6
+HL:
+  neighborDist: 10
+  maxNeighbors: 25
+  timeHorizon: 1.5
+  timeHorizonObst: 1.2
+  radius: 0.7
+  maxSpeed: 1.0
+  maxAcc: 999.0
+  lambdaValue: 0.6

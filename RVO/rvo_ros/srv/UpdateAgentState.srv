@@ -1,0 +1,9 @@
+int32 id
+rvo_ros/AgentState state
+bool update_pos
+bool update_vel
+bool update_prefVel
+bool update_goals
+---
+bool has_agent
+rvo_ros/AgentState state

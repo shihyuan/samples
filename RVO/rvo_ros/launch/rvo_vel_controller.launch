@@ -1,0 +1,26 @@
+<launch>
+    <arg name="room" default="vicon_main"/>
+    <!-- Launch RViz -->
+    <node pkg="rviz" type="rviz" name="rviz" args="-d $(find rvo_ros)/rviz/default.rviz"/>
+
+    <!-- Launch crowd_visualizer -->
+    <node pkg="rvo_ros" type="crowd_visualizer" name="crowd_visualizer" output="screen">
+        <remap from="~crowd" to="rvo_vel_controller/crowd"/>
+        <remap from="~obstacles" to="rvo_vel_controller/obstacles"/>
+    </node>
+
+    <!-- Launch the rvo node -->
+    <node pkg="rvo_ros" type="rvo_vel_controller" name="rvo_vel_controller" output="screen">
+        <remap from="~vehicle_list" to="acl_rviz_node/vehicle_list"/>
+        <rosparam file="$(find rvo_ros)/param/rvo_vel_controller.yaml"/>
+    </node>
+    
+    <!-- Obstalce loader node -->
+    <node pkg="rvo_ros" type="obs_loader.py" name="obs_loader" output="screen">
+        <param name="~rvo_node_name" value="rvo_vel_controller"/>
+        <rosparam file="$(find rvo_ros)/param/$(arg room).yaml"/>
+    </node>
+
+    <!-- rvo_vel_commander -->
+    <node pkg="rvo_ros" type="rvo_vel_crowd_commander.py" name="rvo_vel_crowd_commander" output="screen"/>
+</launch>

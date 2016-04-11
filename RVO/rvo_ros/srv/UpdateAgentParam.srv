@@ -1,0 +1,4 @@
+int32 id
+rvo_ros/AgentParam param
+---
+bool has_agent

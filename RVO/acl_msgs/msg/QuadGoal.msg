@@ -1,0 +1,13 @@
+Header header
+geometry_msgs/Vector3 pos
+geometry_msgs/Vector3 vel
+geometry_msgs/Vector3 accel
+geometry_msgs/Vector3 jerk
+float64 yaw
+float64 dyaw
+bool cut_power
+bool reset_xy_int
+bool reset_z_int
+int8 mode
+int8 MODE_POS=0
+int8 MODE_VEL=1

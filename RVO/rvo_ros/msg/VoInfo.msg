@@ -1,0 +1,4 @@
+geometry_msgs/Point lineDirection
+geometry_msgs/Point linePoint
+geometry_msgs/Point dVector
+float32 dValue

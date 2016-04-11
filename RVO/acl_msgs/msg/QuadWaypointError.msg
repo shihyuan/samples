@@ -1,0 +1,3 @@
+Header header
+time waypoint_stamp
+geometry_msgs/Vector3 pos_error
