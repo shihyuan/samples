@@ -1,0 +1,23 @@
+goal_frame: "laser_lower"
+
+passthough:
+  flag: false
+
+diff_filter:
+  flag: false
+  octree_res: 0.1
+
+downsample:
+  flag: false
+  leaf_size: 0.15
+
+noise_remove:
+  flag: true
+  radius: 0.1
+  min_neighbor: 2
+
+ground_remove:
+  flag: false
+  max_iteration:  500
+  distance_threshold:  0.1
+  use_fixed_ground: true

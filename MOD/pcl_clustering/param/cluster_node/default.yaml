@@ -1,0 +1,24 @@
+euclidean:
+  flag: false
+  project_to_ground: false
+  dist_tolerance: 0.1
+  min_size: 1
+  max_size: 1000
+
+region_growing:
+  flag: false
+  min_size: 10
+  max_size: 5000
+  num_of_neighbors: 10
+  search_radious: 0.5
+  smooth_threshold: 0.1
+  curvature_threshold: 1.0
+
+dynmeans:
+  flag: true
+  lambda: 0.7
+  t_q: 50.0
+  k_tau: 1.01
+  n_restart: 3
+  min_size: 10
+  max_size: 500

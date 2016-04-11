@@ -1,0 +1,16 @@
+<launch>
+	<arg name="param" default="default"/>
+	<node pkg="pcl_clustering" type="cloud_filter_node" name="cloud_filter" output="screen">
+		<rosparam file="$(find pcl_clustering)/param/cloud_filter_node/$(arg param).yaml"/>
+	</node>
+	
+	<!-- 
+	Subscriptions
+		~input/pointcloud: sensor_msgs/PointCloud2
+			- The input pointcloud
+
+	Publications
+		~output/pointcloud: sensor_msgs/PointCloud2
+			- The filtered pointcloud
+	 -->
+</launch>

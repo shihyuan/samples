@@ -1,0 +1,18 @@
+<launch>
+	<arg name="param" default="default"/>
+	<node pkg="pcl_clustering" type="cluster_node" name="cluster_node" output="screen">
+		<rosparam file="$(find pcl_clustering)/param/cluster_node/$(arg param).yaml"/>
+	</node>
+
+	<!-- 
+	Subscriptions
+		~input/pointcloud: sensor_msgs/PointCloud2
+			- The input pointcloud
+
+	Publications
+		~output/clusters: pcl_clustering_msg/Clusters.msg
+			- Resulting clusters
+		~output/marker_array: visualization_msgs/MarkerArray.msg
+			- Visualization markers for clusters
+	 -->
+</launch>
