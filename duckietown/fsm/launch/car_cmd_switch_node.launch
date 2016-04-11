@@ -1,0 +1,19 @@
+<launch>
+    <arg name="param" default="default" doc="Specify a parameter file."/>
+    <node pkg="fsm" type="car_cmd_switch_node.py" name="car_cmd_switch_node" clear_params="true" output="screen">
+        <rosparam command="load" file="$(find fsm)/param/car_cmd_switch_node/$(arg param).yaml"/>
+    </node>
+
+    <!-- 
+    ===Subscriptions===
+    - duckietown_msgs/FSMState.msg for the current state of the fsm.
+    	- Topic name defined in parameter yaml file.
+    - duckietown_msgs/Twist2DStamped.msg for sources of commands.
+    	- Topic names defined in parameter yaml file.
+    	- Does not save local copies. Only pass source corresponding to the current state.
+
+    ===Publications===
+    - "~cmd" duckietown_msgs/Twist2DStamped.msg.
+    	- Command corresponding to the current FSM state.
+	-->
+</launch>

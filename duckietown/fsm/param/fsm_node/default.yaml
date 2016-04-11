@@ -1,0 +1,33 @@
+# Initail state of the FSM
+initial_state: "LANE_FOLLOWING"
+
+# Define events
+events: #Dictionary of {event_name: topic_name} 
+  at_stop_line: "stop_line_filter_node/at_stop_line"
+  intersection_go: "veh_coordinator_node/intersection_go"
+  intersection_done: "open_loop_intersection_control_node/intersection_done"
+
+# Define nodes to be switched on/off based on current state
+nodes: # Dictionary of {node_name: topic_name}
+  apriltag_node: "apriltags/switch"
+
+# Define state transitions
+states:
+# name_of_state:
+#   transitions:
+#     event_name_1: next_state_1
+#     event_name_2: next_state_2
+#     ....
+#   active_nodes: list of node_names that should be switched on
+  LANE_FOLLOWING:
+    transitions:
+      at_stop_line: "COORDINATION"
+    active_nodes: []
+  COORDINATION:
+    transitions:
+      intersection_go: "INTERSECTION_CONTROL"
+    active_nodes: ["apriltag_node"]
+  INTERSECTION_CONTROL:
+    transitions:
+      intersection_done: "LANE_FOLLOWING"
+    active_nodes: []

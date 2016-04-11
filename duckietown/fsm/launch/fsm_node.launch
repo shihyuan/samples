@@ -1,0 +1,26 @@
+<launch>
+    <arg name="param" default="default" doc="Specify a parameter file"/>
+    <node pkg="fsm" type="fsm_node.py" name="fsm_node" clear_params="true" output="screen">
+        <rosparam command="load" file="$(find fsm)/param/fsm_node/$(arg param).yaml"/>
+    </node>
+    <!-- 
+    ==== Publications ==== 
+    - ~mode: duckeitown_msgs/FSMState.msg.
+        - Current state of the FSM.
+        - Event-based publication.
+        - Self transition are also published to differentiate with no transition. 
+        - Stamped with the event that triggers the transition.
+    - Multiple switches as duckietown_msgs/BoolStamped.msg.
+        - Topics name defined in parameter yaml file.
+        - Event-based publication.
+        - Stamped with the event that triggers the transition.
+        - Trun nodes ON/OFF according to current state of the FSM.
+        - True for active nodes and False for inactive nodes.
+
+    ==== Subscriptions ====
+    - Multiple duckietow_msgs/BoolStamped.msg as events for the FSM
+        - Topics defined in parameter yaml files.
+        - msg.data == False are ignored.
+
+    -->
+</launch>
