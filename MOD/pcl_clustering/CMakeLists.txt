@@ -180,16 +180,6 @@ include_directories(
 ## Packages ##
 ##############
 
-# Link the utilpcl library
-# add_library(utilpcl src/utilpcl.cpp)
-# target_link_libraries(utilpcl ${catkin_LIBRARIES})
-
-# add_executable(velodyne_cluster_node src/velodyne_cluster_node.cpp)
-# target_link_libraries(velodyne_cluster_node ${catkin_LIBRARIES} utilpcl)
-
-#add_executable(lidar_to_cloud_node src/lidar_to_cloud_node.cpp)
-#target_link_libraries(lidar_to_cloud_node ${catkin_LIBRARIES})
-
 add_executable(cloud_filter_node src/cloud_filter_node.cpp)
 add_dependencies(cloud_filter_node ${catkin_EXPORTED_TARGETS})
 target_link_libraries(cloud_filter_node ${catkin_LIBRARIES})
